@@ -20,6 +20,10 @@ function bindEvents(){
         'click',
         controlHandler
     );
+    controls.addEventListener(
+        'mousedown',
+        dragControlHandler
+    );
     actions.addEventListener(
         'click',
         actionHandler
@@ -32,6 +36,14 @@ function bindEvents(){
         'click',
         operatorHandler
     );
+}
+
+function dragControlHandler(el){
+    if(el.target.className != 'appControls'){
+        return;
+    }
+
+    el.srcElement.setAttribute('draggable', true);
 }
 
 function controlHandler(el){
