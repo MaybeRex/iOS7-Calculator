@@ -38,25 +38,33 @@ div{
     left: 2em;
 }
 
-.outputField{
+.outputWrapper{
     position: relative;
-    height: 1.5em;
+    height: 10.5em;
     width:100%;
     background-color: rgb(32, 32, 32);
-    color:white;
-    font-size: 7em;
+}
+
+.outputWrapper .outputField{
+    height: 1em;
+    width: 100%;
+    color: white;
+    font-size: 12em;
     text-align: right;
-    line-height: 2em;
+    left: 0;
+    bottom: 0;
+    position: absolute;
 }
 
 .actionField{
     display: -webkit-inline-box;
+    -webkit-user-select: none;
     width: 75%;
     height: 6em;
 }
 
 .actionField div{
-    background-color: rgb(181, 166, 166);
+    background-color: rgb(189, 189, 189);
     height: 99%;
     width: 33%;
     margin: 0 .015em 0 .01em;
@@ -67,8 +75,8 @@ div{
 }
 
 .numberField{
+    -webkit-user-select: none;
     position: relative;
-    background-color: red;
     width: 75%;
     height: 24em;
 
@@ -83,7 +91,7 @@ div{
 
 .numberField .row div{
     height: 99%;
-    background-color: rgb(212, 199, 199);
+    background-color: rgb(203, 203, 203);
     width: 33%;
     position: static;
     margin: 0 .015em 0 .01em;
@@ -101,7 +109,13 @@ div{
     width: 32.5%;
 }
 
+.numberField .row div:active,
+.actionField div:active{
+    background-color: rgb(150, 150, 150)
+}
+
 .operatorFeild{
+    -webkit-user-select: none;
     position: absolute;
     top: calc(30% - 0.676em);
     width: 25%;
@@ -118,4 +132,9 @@ div{
     font-size: 2em;
     line-height: 3em;
     text-align: center;
+    cursor: pointer;
+}
+
+.operatorFeild div:active{
+    background-color: rgb(232, 132, 0);
 }
