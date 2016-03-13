@@ -8,7 +8,7 @@ window.onload=function(e){
 }
 
 function init(){
-    electron.setResizable(false);
+    electron.setResizable(true);
 }
 
 function bindEvents(){

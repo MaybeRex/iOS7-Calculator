@@ -6,8 +6,7 @@ body{
 }
 
 div{
-    font-family: 'helvatica';
-    font-weight: lighter;
+    font-family: 'helvetica';
 }
 
 .appControls{
@@ -21,7 +20,7 @@ div{
     -webkit-app-region: no-drag;
     z-index: 800;
     position: absolute;
-    top: calc(0% + 0.19em);
+    top: 0.19em;
     height: 1em;
     width: 1em;
     border-radius: 1em;
@@ -43,9 +42,80 @@ div{
     position: relative;
     height: 1.5em;
     width:100%;
-    background-color: black;
+    background-color: rgb(32, 32, 32);
     color:white;
     font-size: 7em;
     text-align: right;
     line-height: 2em;
+}
+
+.actionField{
+    display: -webkit-inline-box;
+    width: 75%;
+    height: 6em;
+}
+
+.actionField div{
+    background-color: rgb(181, 166, 166);
+    height: 99%;
+    width: 33%;
+    margin: 0 .015em 0 .01em;
+    text-align: center;
+    font-size: 2em;
+    line-height: 3em;
+    cursor: pointer;
+}
+
+.numberField{
+    position: relative;
+    background-color: red;
+    width: 75%;
+    height: 24em;
+
+}
+
+.numberField .row{
+    width: 100%;
+    height: 25%;
+    background-color: black;
+    display: -webkit-inline-box;
+}
+
+.numberField .row div{
+    height: 99%;
+    background-color: rgb(212, 199, 199);
+    width: 33%;
+    position: static;
+    margin: 0 .015em 0 .01em;
+    font-size: 2em;
+    line-height: 3em;
+    text-align: center;
+    cursor: pointer;
+}
+
+.numberField .row .zero{
+    width: 66.5%;
+}
+
+.numberField .row .decimal{
+    width: 32.5%;
+}
+
+.operatorFeild{
+    position: absolute;
+    top: calc(30% - 0.676em);
+    width: 25%;
+    height: 30em;
+    right: 0;
+    background-color: black;
+}
+
+.operatorFeild div{
+    color: white;
+    background-color: orange;
+    height: 19.8%;
+    margin: 0 0 .03em 0;
+    font-size: 2em;
+    line-height: 3em;
+    text-align: center;
 }
