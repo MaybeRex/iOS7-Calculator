@@ -63,14 +63,18 @@ function controlHandler(el){
 
 function actionHandler(el){
     const output = document.querySelector('.outputField');
+    const clear = document.querySelector('.clear');
     switch (el.target.id) {
         case 'clear':
-            currentNumber = '0';
-            output.innerHTML = '0';
-            output.style.fontSize = '12em';
-            if(operator == null){
+            if(currentNumber == '0'){
+                currentNumber = '0';
+                opNumber = null;
+                operator = null;
                 CtoAC();
+            }else{
+                currentNumber = '0';
             }
+            output.style.fontSize = '12em';
             break;
         case 'signChange':
             if(currentNumber == '0'){
@@ -79,12 +83,10 @@ function actionHandler(el){
             currentNumber.includes('-')
             ? currentNumber = currentNumber.replace('-', '')
             : currentNumber = `-${currentNumber}`;
-            output.innerHTML = currentNumber;
             break;
         default:
-
     }
-
+    output.innerHTML = currentNumber;
 }
 
 function numberHandler(el){
@@ -162,7 +164,6 @@ function updateNumber(number){
 }
 
 function resizeOutput(){
-    console.log(`at output field`);
     const output = document.querySelector('.outputField');
     switch (true) {
         case currentNumber.length >= 4 && currentNumber.length < 7:
@@ -215,7 +216,7 @@ function solve(){
         return;
     }
 
-    let output = ''
+    let output = '';
 
     switch (operator) {
         case 'divide':
