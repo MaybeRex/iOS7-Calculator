@@ -5,6 +5,7 @@ const electron = remote.getCurrentWindow();
 let opNumber = null;
 let currentNumber = '0';
 let operator = null;
+let freshNumber = false;
 
 window.onload=function(e){
     init();
@@ -61,11 +62,38 @@ function controlHandler(el){
 }
 
 function actionHandler(el){
+    const output = document.querySelector('.outputField');
+    switch (el.target.id) {
+        case 'clear':
+            currentNumber = '0';
+            output.innerHTML = '0';
+            output.style.fontSize = '12em';
+            if(operator == null){
+                CtoAC();
+            }
+            break;
+        case 'signChange':
+            if(currentNumber == '0'){
+                return;
+            }
+            currentNumber.includes('-')
+            ? currentNumber = currentNumber.replace('-', '')
+            : currentNumber = `-${currentNumber}`;
+            output.innerHTML = currentNumber;
+            break;
+        default:
+
+    }
 
 }
 
 function numberHandler(el){
-    switch (el.target.className) {
+    if(freshNumber === true){
+        freshNumber = false;
+        currentNumber = '0';
+        resizeOutput();
+    }
+    switch (el.target.id) {
         case 'one':
             updateNumber('1');
             break;
@@ -117,36 +145,110 @@ function updateNumber(number){
     if(currentNumber == '0' && number != '.'){
         currentNumber = number;
         document.querySelector('.outputField').innerHTML = currentNumber;
+        ACtoC();
         return;
     }
     if(currentNumber == '0' && number == '.'){
         currentNumber = '0.';
         document.querySelector('.outputField').innerHTML = currentNumber;
+        ACtoC();
         return;
     }
     currentNumber = `${currentNumber}${number}`;
     let output = document.querySelector('.outputField');
-
-    switch (currentNumber.length) {
-        case 4:
-            output.style.fontSize = '6em'
-            break;
-        case 7:
-            output.style.fontSize = '4em'
-            break;
-        case 11:
-            output.style.fontSize = '3em'
-            break
-        case 14:
-            output.style.fontSize = '2em'
-            break
-        default:
-            //stay
-    }
-
+    resizeOutput();
+    ACtoC();
     output.innerHTML = currentNumber;
 }
 
-function operatorHandler(el){
+function resizeOutput(){
+    console.log(`at output field`);
+    const output = document.querySelector('.outputField');
+    switch (true) {
+        case currentNumber.length >= 4 && currentNumber.length < 7:
+            output.style.fontSize = '6em';
+            break;
+        case currentNumber.length >= 7 && currentNumber.length < 11:
+            output.style.fontSize = '4em';
+            break;
+        case currentNumber.length >= 11 && currentNumber.length < 14:
+            output.style.fontSize = '3em';
+            break
+        case currentNumber.length >= 14:
+            output.style.fontSize = '2em';
+            break
+        default:
+            output.style.fontSize = '12em';
+    }
+}
 
+function operatorHandler(el){
+    if(el.target.id == 'equals'){
+        solve();
+        return;
+    }
+
+    opNumber = currentNumber;
+    currentNumber = '0'
+    zero();
+
+    switch (el.target.id) {
+        case 'divide':
+            operator = 'divide';
+            break;
+        case 'multiply':
+            operator = 'multiply';
+            break;
+        case 'subtract':
+            operator = 'subtract';
+            break;
+        case 'add':
+            operator = 'add';
+            break;
+        default:
+            //pupper
+    }
+}
+
+function solve(){
+    if(operator == null){
+        return;
+    }
+
+    let output = ''
+
+    switch (operator) {
+        case 'divide':
+            output = opNumber / currentNumber;
+            break;
+        case 'multiply':
+            output = opNumber * currentNumber;
+            break;
+        case 'subtract':
+            output = opNumber - currentNumber;
+            break;
+        case 'add':
+            output = Number(opNumber) + Number(currentNumber);
+            break;
+        default:
+            //doggo
+    }
+
+    currentNumber = `${output}`;
+    document.querySelector('.outputField').innerHTML = currentNumber;
+    resizeOutput();
+    opNumber = null;
+    freshNumber = true;
+}
+
+function zero(){
+    document.querySelector('.outputField').innerHTML = '0';
+}
+
+function ACtoC(){
+    document.querySelector('.clear').innerHTML = 'C';
+}
+
+function CtoAC(){
+    document.querySelector('.clear').innerHTML = 'AC';
 }
