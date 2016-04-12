@@ -72,6 +72,7 @@ div{
     font-size: 2em;
     line-height: 3em;
     cursor: pointer;
+    transition: background-color .15s;
 }
 
 .numberField{
@@ -99,6 +100,7 @@ div{
     line-height: 3em;
     text-align: center;
     cursor: pointer;
+    transition: background-color .15s;
 }
 
 .numberField .row .zero{
@@ -135,6 +137,7 @@ div{
     line-height: 3em;
     text-align: center;
     cursor: pointer;
+    transition: background-color .15s;
 }
 
 .operatorField div:active{
