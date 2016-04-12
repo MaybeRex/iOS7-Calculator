@@ -20,7 +20,7 @@ function bindEvents(){
     const controls = document.querySelector('.appControls');
     const actions = document.querySelector('.actionField');
     const numbers = document.querySelector('.numberField');
-    const operators = document.querySelector('.operatorFeild');
+    const operators = document.querySelector('.operatorField');
     controls.addEventListener(
         'click',
         controlHandler

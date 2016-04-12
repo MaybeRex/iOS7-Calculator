@@ -114,8 +114,10 @@ div{
     background-color: rgb(150, 150, 150)
 }
 
-.operatorFeild{
+.operatorField{
     -webkit-user-select: none;
+    display: flex;
+    flex-direction: column;
     position: absolute;
     top: calc(30% - 0.676em);
     width: 25%;
@@ -124,7 +126,7 @@ div{
     background-color: black;
 }
 
-.operatorFeild div{
+.operatorField div{
     color: white;
     background-color: orange;
     height: 19.8%;
@@ -135,6 +137,9 @@ div{
     cursor: pointer;
 }
 
-.operatorFeild div:active{
+.operatorField div:active{
+    display: flex;
+    flex-direction: column;
     background-color: rgb(232, 132, 0);
+    margin: .03em .03em .07em .03em;
 }
