@@ -119,6 +119,7 @@ function updateNumber(number){
     currentNumber = `${currentNumber}${number}`;
     resizeOutput();
     ACtoC();
+    console.log(currentNumber, typeof currentNumber);
     output.innerHTML = currentNumber;
 }
 
@@ -126,16 +127,16 @@ function resizeOutput(){
     const output = document.body.querySelector('.outputField');
     switch (true) {
         case currentNumber.length >= 7 && currentNumber.length < 11:
-            output.style.fontSize = '6em';
+            output.style.fontSize = '9em';
             break;
         case currentNumber.length >= 11 && currentNumber.length < 14:
-            output.style.fontSize = '4em';
+            output.style.fontSize = '5em';
             break;
         case currentNumber.length >= 14 && currentNumber.length < 20:
-            output.style.fontSize = '3em';
+            output.style.fontSize = '4em';
             break
         case currentNumber.length >= 20:
-            output.style.fontSize = '2em';
+            output.style.fontSize = '3em';
             break
         default:
             output.style.fontSize = '12em';
@@ -195,6 +196,10 @@ function solve(){
     }
 
     currentNumber = `${output}`;
+    if(currentNumber.length > 11){
+        currentNumber = Number(currentNumber).toFixed(12);
+        currentNumber = Number(currentNumber);
+    }
     document.body.querySelector('.outputField').innerHTML = currentNumber;
     resizeOutput();
     opNumber = null;
