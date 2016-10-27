@@ -24,11 +24,8 @@ app.on('ready', function() {
   // Create the browser window.
     mainWindow = new BrowserWindow(
         {
-            width: 375,
-            height: 667,
-            frame: false,
-            resizable: false,
-            alwaysOnTop: true
+            width: 720,
+            height: 1280
         }
     );
 

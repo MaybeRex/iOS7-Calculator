@@ -1,0 +1,23 @@
+{
+  "name": "ios7-calculator",
+  "version": "0.0.1",
+  "description": "Simple iOS7 calculator app",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaybeRex/iOS7-Calculator.git"
+  },
+  "author": "Mario Solorzano",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MaybeRex/iOS7-Calculator/issues"
+  },
+  "homepage": "https://github.com/MaybeRex/iOS7-Calculator#readme",
+  "dependencies": {
+    "electron-packager": "^5.2.1",
+    "electron-prebuilt": "^0.36.7"
+  }
+}
