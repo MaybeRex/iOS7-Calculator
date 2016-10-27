@@ -15,6 +15,9 @@ body, html{
 
 body *{
     position: relative;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 body section{
@@ -38,6 +41,7 @@ body section.outputSection p{
     color: rgb(212, 212, 212);
     margin: 0;
     line-height: .7em;
+    margin-bottom: .04em;
 }
 
 body section.operatorField{

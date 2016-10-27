@@ -27,7 +27,7 @@ function bindEvents(){
 
 function numberHandler(el){
     const output = document.body.querySelector('.outputField');
-    if(freshNumber === true){
+    if(freshNumber == true){
         freshNumber = false;
         currentNumber = '0';
         resizeOutput();
@@ -125,16 +125,16 @@ function updateNumber(number){
 function resizeOutput(){
     const output = document.body.querySelector('.outputField');
     switch (true) {
-        case currentNumber.length >= 4 && currentNumber.length < 7:
+        case currentNumber.length >= 7 && currentNumber.length < 11:
             output.style.fontSize = '6em';
             break;
-        case currentNumber.length >= 7 && currentNumber.length < 11:
+        case currentNumber.length >= 11 && currentNumber.length < 14:
             output.style.fontSize = '4em';
             break;
-        case currentNumber.length >= 11 && currentNumber.length < 14:
+        case currentNumber.length >= 14 && currentNumber.length < 20:
             output.style.fontSize = '3em';
             break
-        case currentNumber.length >= 14:
+        case currentNumber.length >= 20:
             output.style.fontSize = '2em';
             break
         default:
