@@ -17,6 +17,8 @@
             const numbers = document.body.querySelector('.numberField');
             const operators = document.body.querySelector('.operatorField');
 
+            screen.lockOrientation('portrait');
+
             numbers.addEventListener(
                 'click',
                 numberHandler
