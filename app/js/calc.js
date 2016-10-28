@@ -80,6 +80,10 @@
                     }else{
                         currentNumber = '0';
                     }
+                    if(currentOpRef){
+                        currentOpRef.classList.remove('currentOp');
+                        currentOpRef = null;
+                    }
                     output.style.fontSize = '12em';
                     output.innerHTML = currentNumber;
                     break;
@@ -92,6 +96,9 @@
                         currentNumber = `-${currentNumber}`;
                     resizeOutput();
                     output.innerHTML = currentNumber;
+                    break;
+                case 'modulus':
+                    operatorHandler(el)
                     break;
                 default:
                     //ayylmaoo
@@ -172,11 +179,15 @@
                 case 'add':
                     operator = 'add';
                     break;
+                case 'modulus':
+                    operator = 'modulus';
+                    break;
                 default:
                     //pupper
             }
             currentOpRef = el.target;
             el.target.classList.add('currentOp');
+            return;
         }
 
         function solve(){
@@ -198,6 +209,9 @@
                     break;
                 case 'add':
                     output = Number(opNumber) + Number(currentNumber);
+                    break;
+                case 'modulus':
+                    output = Number(opNumber) % Number(currentNumber);
                     break;
                 default:
                     //doggo
