@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cordova": "rm -rf cordova/www/app && cp -R app/ cordova/www/ && cd cordova/ && cordova run android"
+    "dev:server": "node_modules/.bin/webpack-dev-server --content-base ./src --inline --hot"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,24 @@
   "homepage": "https://github.com/MaybeRex/iOS7-Calculator#readme",
   "dependencies": {
     "electron-packager": "^5.2.1",
-    "electron-prebuilt": "^0.36.7"
+    "electron-prebuilt": "^0.36.7",
+    "babel-core": "*",
+    "babel-loader": "*",
+    "babel-plugin-add-module-exports": "*",
+    "babel-plugin-react-html-attrs": "*",
+    "babel-plugin-transform-class-properties": "*",
+    "babel-plugin-transform-decorators-legacy": "*",
+    "babel-preset-es2015": "*",
+    "babel-preset-react": "*",
+    "babel-preset-stage-0": "*",
+    "react": "*",
+    "react-dom": "*",
+    "react-redux": "*",
+    "redux": "*",
+    "redux-logger": "*",
+    "redux-promise-middleware": "*",
+    "redux-thunk": "*",
+    "webpack": "*",
+    "webpack-dev-server": "*"
   }
 }
